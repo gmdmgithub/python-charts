@@ -1,5 +1,5 @@
 from bokeh.plotting import figure, output_file, show
-
+import pandas
 
 def bokeh_print():
     x = [1, 2, 3, 4, 5, 6]
@@ -35,16 +35,23 @@ def data_plot():
         plot_width=800,
         plot_height=600,
         title="Cars with top horsepower",
-        x_axis_label='horpower'
-        tools="")
+        x_axis_label='horpower',
+        tools="pan,box_select,zoom_in,zoom_out,save,reset")
 
     #ranger graph
     # https://bokeh.pydata.org/en/latest/docs/reference/models/glyphs/hbar.html
     fig.hbar(
         y=car,
+        right=horse_power,
+        left=0,
+        height=0.5,
+        color="blue",
+        fill_alpha=0.5
 
     )
 
-
+     # show the results
+    show(fig)
 if __name__ == "__main__":
-    bokeh_print()
+    # bokeh_print()
+    data_plot()
