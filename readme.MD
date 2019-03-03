@@ -1,34 +1,34 @@
-# simple playground with folium and bokeh libraries
+## simple playground with folium and bokeh libraries
 
-## If no installed pipenv - install - other solution docker (another scafold)
+### If no installed pipenv - install - other solution docker (another scafold)
 ```
 pip install pipenv
 ```
-## Activate pipenv
+### Activate pipenv
 ```
 pipenv shell
 ```
-## for environment variables
+### for environment variables
 ```
 pipenv install python-dotenv
 ```
-# maps - using folium, its powerfull library with using opensource maps
+## maps - using folium, its powerfull library with using opensource maps
 
-## install
+### install
 ```
 pipenv install fulium
 ```
-## Use as map
+### Use as map
 ```
 map = folium.Map(location=[X,Y], zoom_start=<NUM>)
 ...
 map.save('index.html')
 ```
-# Run project with pipenv ie:
+## Run project with pipenv ie:
 ```
 pipenv run maps.py
 ```
-## Use charts - powerful bokeh library
+### Use charts - powerful bokeh library
 ```
 pipenv install bokeh pandas
 ```
