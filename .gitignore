@@ -3,5 +3,6 @@ lines.html
 index.html
 Pipfile.lock
 .env
+fig.div
 sample.csv
 .vscode/

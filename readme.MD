@@ -1,4 +1,4 @@
-# simple flask sacfold with pipenv
+# simple playground with folium and bokeh libraries
 
 ## If no installed pipenv - install - other solution docker (another scafold)
 ```
@@ -23,13 +23,16 @@ pipenv install fulium
 map = folium.Map(location=[X,Y], zoom_start=<NUM>)
 ...
 map.save('index.html')
-``
-
-
+```
 # Run project with pipenv ie:
 ```
 pipenv run maps.py
 ```
+## Use charts - powerful bokeh library
+```
+pipenv install bokeh pandas
+```
+### Find bokeh lib https://bokeh.pydata.org/
 
 ## Version
 1.0.0
