@@ -97,6 +97,7 @@ def data_plot():
 
     # Use compoenten from bokeh.embed to prepare script and div
     ## IMPORTANT - use it then in respond!!
+    ## https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html#userguide-embed
     script, div = components(fig)
     # print(div)
     # print(script)
