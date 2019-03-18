@@ -1,7 +1,7 @@
-mymap.html
 *.html
+*.csv
+tips.txt
 Pipfile.lock
 .env
 fig.div
-*.csv
 .vscode/
