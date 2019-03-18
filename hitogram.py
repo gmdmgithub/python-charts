@@ -10,7 +10,7 @@ from bokeh.models import ColumnDataSource, HoverTool
 def show_histogram(use_colum_data_source):
     # Read the data from a csv into a dataframe
     flights = pandas.read_csv('./flight.csv', index_col=0)
-    output_file("flights.html")
+    output_file("flights.html",  title="First more complicated bokeh example")
 
     # Summary stats for the column of interest
     print(flights['arr_delay'].describe())
@@ -48,8 +48,10 @@ def show_histogram(use_colum_data_source):
                left='left', right='right',
                hover_fill_alpha=1.0,
                fill_alpha=0.75, hover_fill_color='navy',
-               fill_color='red', line_color='black')
+               fill_color='red', line_color='black',
+               legend='Delay statistics', muted_alpha=0.1)
 
+        p.legend.click_policy="mute"
 
         # Hover tool referring to our own data field using @ and
         # a position on the graph using $
