@@ -4,12 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+autopep8 = "*"
 
 [packages]
 folium = "*"
 bokeh = "*"
 pandas = "*"
 python-dotenv = "*"
+numpy = "*"
 
 [requires]
 python_version = "3.7"

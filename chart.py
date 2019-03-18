@@ -1,9 +1,11 @@
-from bokeh.plotting import figure, output_file, show, save, ColumnDataSource
+from bokeh.plotting import figure, output_file, show, save, ColumnDataSource, output_notebook
 from bokeh.models.tools import HoverTool
 from bokeh.transform import factor_cmap
 from bokeh.palettes import Blues8
 from bokeh.embed import components
 import pandas
+import numpy as np
+
 
 def bokeh_print():
     x = [1, 2, 3, 4, 5, 6]
@@ -41,7 +43,7 @@ def data_plot():
 
     # create a new plot with a title and axis labels
     fig = figure(
-    #    y_range=car, # using 
+        #    y_range=car, # using
         y_range=car_list,
         plot_width=700,
         plot_height=400,
@@ -51,7 +53,7 @@ def data_plot():
         tools="pan,box_select,zoom_in,zoom_out,save,reset",
         toolbar_location=None)
 
-    #ranger graph
+    # ranger graph
     # https://bokeh.pydata.org/en/latest/docs/reference/models/glyphs/hbar.html
     fig.hbar(
         # y=car,
@@ -60,7 +62,7 @@ def data_plot():
         right='Horsepower',
         left=0,
         height=0.5,
-        #color="#ff1200",
+        # color="#ff1200",
         fill_color=factor_cmap(
             'Car',
             palette=Blues8,
@@ -91,21 +93,52 @@ def data_plot():
     """
     fig.add_tools(hover)
 
-     # show the results
+    # show the results
     # show(fig) #like f5
     save(fig)
 
     # Use compoenten from bokeh.embed to prepare script and div
-    ## IMPORTANT - use it then in respond!!
-    ## https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html#userguide-embed
+    # IMPORTANT - use it then in respond!!
+    # https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html#userguide-embed
     script, div = components(fig)
     # print(div)
     # print(script)
-    f= open("fig.div","w")
+    f = open("fig.div", "w")
     f.write(div)
     f.write(script)
     f.close()
 
+
+def simple_data():
+
+    # output to static HTML file
+    output_file("simple.html")
+
+    # Create a blank figure with labels
+    p = figure(plot_width=600, plot_height=600,
+               title='Example Glyphs',
+               x_axis_label='X', y_axis_label='Y')
+
+    # Example data
+    squares_x = [1, 3, 4, 5, 8]
+    squares_y = [8, 7, 3, 1, 10]
+    circles_x = [9, 12, 4, 3, 15]
+    circles_y = [8, 4, 11, 6, 10]
+
+    # Add squares glyph
+    p.square(squares_x, squares_y, size=12, color='navy', alpha=0.6)
+    # Add circle glyph
+    p.circle(circles_x, circles_y, size=12, color='red')
+
+    # Set to output the plot in the notebook
+    # output_notebook()
+
+    # Show the plot
+    # show(p)
+    save(p)
+
 if __name__ == "__main__":
     # bokeh_print()
-    data_plot()
+    # data_plot()
+    simple_data()
+
